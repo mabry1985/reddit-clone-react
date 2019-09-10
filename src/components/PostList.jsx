@@ -11,6 +11,9 @@ function PostList(props) {
           body={post.body}
           votes={post.votes}
           key={index}
+          id={parseInt(index)}
+          onUpVote={props.onUpVote}
+          onDownVote={props.onDownVote}
         />
     )}
     </div>

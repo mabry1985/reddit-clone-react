@@ -7,7 +7,7 @@ function NewPostForm(props) {
 
   function HandleNewPostFormSubmission(event) {
     event.preventDefault();
-    props.onAddingNewPostToList({ title: _title.value, body: _body.value });
+    props.onAddingNewPostToList({ title: _title.value, body: _body.value, votes: 0 });
     _title.value = '';
     _body.value = '';
   }

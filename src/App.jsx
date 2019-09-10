@@ -10,6 +10,9 @@ class App extends React.Component {
       masterPostList: [],
     };
     this.handleAddingNewPostToList = this.handleAddingNewPostToList.bind(this);
+
+    this.handleUpVote = this.handleUpVote.bind(this);
+    this.handleDownVote = this.handleDownVote.bind(this);
   }
 
   handleAddingNewPostToList(newPost) {
@@ -18,12 +21,51 @@ class App extends React.Component {
     this.setState({ masterPostList: newMasterPostList });
   }
 
+  //sweet tutorial for crud functionality for arrays https://www.robinwieruch.de/react-state-array-add-update-remove
+
+  handleUpVote(i) {
+    this.setState(state => {
+      const postArray = state.masterPostList.map((post, j) => {
+        console.log('j' + j, 'i' + i, post);
+        if (j === i) {
+          post.votes += 1;
+          return post;
+        } else {
+          return post;
+        }
+      });
+      return {
+        postArray,
+      };
+    });
+  }
+
+  handleDownVote(i) {
+    this.setState(state => {
+      const postArray = state.masterPostList.map((post, j) => {
+        if (j === i) {
+          post.votes -= 1;
+          return post;
+        } else {
+          return post;
+        }
+      });
+      return {
+        postArray,
+      };
+    });
+  }
+
   render() {
     return (
       <BrowserRouter>
         <main className="container">
           <Header />
-          <Routes onAddingNewPostToList={this.handleAddingNewPostToList} masterPostList={this.state.masterPostList}/>
+          <Routes
+            onAddingNewPostToList={this.handleAddingNewPostToList} masterPostList={this.state.masterPostList}
+            onUpVote={this.handleUpVote}
+            onDownVote={this.handleDownVote}
+          />
         </main>
       </BrowserRouter>
     );
