@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Post from './Post';
 
 function PostList(props) {
+  
   return (
     <div>
       {props.masterPostList.map((post, index) =>

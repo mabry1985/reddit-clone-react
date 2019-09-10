@@ -26,7 +26,6 @@ class App extends React.Component {
   handleUpVote(i) {
     this.setState(state => {
       const postArray = state.masterPostList.map((post, j) => {
-        console.log('j' + j, 'i' + i, post);
         if (j === i) {
           post.votes += 1;
           return post;

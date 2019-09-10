@@ -3,6 +3,7 @@ import NewPostForm from '../components/NewPostForm';
 import PostList from '../components/PostList';
 
 const SubReddit = (props) => (
+
   <div>
     <h2>Subreddit</h2>
     <NewPostForm onAddingNewPostToList={props.onAddingNewPostToList}/>

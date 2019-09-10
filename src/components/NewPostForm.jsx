@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './NewPostForm.scss';
 
 function NewPostForm(props) {
   let _title = null;

@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './post.scss';
 
 function Post(props) {
+
   console.log();
   return (
-    <div>
+    <div className='post'>
       <h2>{props.title}</h2>
       <p>{props.body}</p>
       <p><span onClick={() => props.onUpVote(props.id)}>&uArr;</span>
